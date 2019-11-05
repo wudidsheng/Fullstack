@@ -1,0 +1,29 @@
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
+// 添加内容
+import Adcetiger from '../views/Adcetiger.vue'
+Vue.use(VueRouter)
+
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: Home,
+    children:[
+      {
+        path:'/newclass',
+        component:Adcetiger
+      }
+    ]
+  }
+  
+]
+
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
+})
+
+export default router
