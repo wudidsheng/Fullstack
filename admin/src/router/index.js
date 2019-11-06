@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 // 添加内容
 import Adcetiger from '../views/Adcetiger.vue'
+// 所有内容
+import Alldecti from '../components/Alldect.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -14,6 +16,15 @@ const routes = [
       {
         path:'/newclass',
         component:Adcetiger
+      },
+      {
+        path:'/eidiclass/:ID',
+        component:Adcetiger,
+        props:true
+      },
+      {
+        path:'/Alldect',
+        component:Alldecti
       }
     ]
   }
