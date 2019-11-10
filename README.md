@@ -11,14 +11,36 @@
 
 #### 服务端
 
-> 1:express,mongoose,cors
+> express,mongoose,cors
 >
->   
+> **1分类管理**
+>
+> > - 分类增加
+> >
+> > - 分类删除
+> >
+> > - 编辑分类
+> >
+> > - 查找分类
+> >
+> > - 子分类管理
+> >
+> >   > mongoose.schemtype.id               ref关联的模型
 
 #### 不会的
 
 > @xx.native.prevent
 >
-> app.router
+> app.router 子路由
 >
-> 
+> mongoose:populate      ref
+>
+> router请求参数合并
+>
+> mongoose：
+>
+> model.modelname
+>
+> setOptings
+>
+> populate

@@ -3,6 +3,16 @@
     <h1>{{ID?"编辑":'新增'}}分类</h1>
     <el-col :span="20">
       <el-form label-width="200px" @submit.native.prevent="addclass">
+        <el-form-item label="上级分类">
+          <el-select v-model="module.father" placeholder="请选择">
+            <el-option
+              v-for="item in options"
+              :key="item._id"
+              :label="item.name"
+              :value="item._id"
+            ></el-option>
+          </el-select>
+        </el-form-item>
         <el-form-item label="名称">
           <el-input type="text" v-model="module.name"></el-input>
         </el-form-item>
@@ -22,15 +32,17 @@ export default {
   data() {
     return {
       module: {
-        name: ""
-      }
+        name: "",
+        father:""
+      },
+      options:{}
     };
   },
   methods: {
     addclass() {
       if (this.module.name) {
         if (!this.ID) {
-          this.$ajax.post("cert", { name: this.module.name }).then(() => {
+          this.$ajax.post("cert", { name: this.module.name,father:this.module.father }).then(() => {
             this.$message({
               message: "添加成功",
               type: "success"
@@ -39,13 +51,13 @@ export default {
           });
         } else {
           this.$ajax
-            .put(`cert/${this.ID}`, { name: this.module.name })
+            .put(`cert/${this.ID}`, { name: this.module.name,father:this.module.father })
             .then(() => {
               this.$message({
                 message: "更改成功",
                 type: "success"
               });
-              this.$router.push("/Alldect")
+              this.$router.push("/Alldect");
             });
         }
       } else {
@@ -54,16 +66,25 @@ export default {
           type: "warning"
         });
       }
+    },
+    // 获取父级分类
+    getallcet(){
+      this.$ajax.get("/cert").then(data=>{
+        this.options=data.data;
+      })
     }
   },
   created() {
+     this.getallcet()
     if (this.ID) {
       this.$ajax.get(`/cert/${this.ID}`).then(data => {
         console.log(data.data);
         this.module.name = data.data.name;
+        this.module.father = data.data.father;
       });
-    } else return "";
+    } 
   }
+  
 };
 </script>
   

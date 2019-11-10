@@ -13,7 +13,7 @@ module.exports = app => {
     })
     //查找所有分类
     router.get('/cert', (req, res) => {
-        catrto.find({}, (err, result) => {
+        catrto.find({}).populate('father').exec((err, result) => {
             if (!err) {
                 res.send(result)
             }
@@ -33,10 +33,18 @@ module.exports = app => {
     })
     // 编辑一条分类
     router.put("/cert/:id", (req, res) => {
-        console.log(req.params.id,req.body)
-        catrto.findByIdAndUpdate(req.params.id,req.body, (err, result) => {
-                console.log()
+        console.log(req.params.id, req.body)
+        catrto.findByIdAndUpdate(req.params.id, req.body, (err, result) => {
+            console.log()
             res.send(result)
         })
+    })
+    /* ------装备物品管理-------*/
+    router.get('/article',(req,res)=>{
+        res.send('7889')
+    })
+    // 添加物品
+    router.post('/article',(req,res)=>{
+        res.send(req.body)
     })
 }

@@ -4,6 +4,7 @@
       <h1>所有分类</h1>
       <el-table :data="tableData" style="width: 100%">
         <el-table-column prop="_id" label="id"></el-table-column>
+          <el-table-column prop="father.name" label="上级分类"></el-table-column>
         <el-table-column prop="name" label="名称"></el-table-column>
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">

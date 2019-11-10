@@ -5,6 +5,8 @@ import Home from '../views/Home.vue'
 import Adcetiger from '../views/Adcetiger.vue'
 // 所有内容
 import Alldecti from '../components/Alldect.vue'
+// 装备
+import Article from '../views/addarticle.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -25,6 +27,13 @@ const routes = [
       {
         path:'/Alldect',
         component:Alldecti
+      },{
+        path:'/addarticle',
+        component:Article
+      },
+      {
+        path:'/articlelist',
+        component:Article
       }
     ]
   }

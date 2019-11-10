@@ -2,7 +2,7 @@
   <el-row class="tac">
     <el-col class="head">
       <el-row>
-        <el-col :span="4" :offset=1>网站内容管理</el-col>
+        <el-col :span="4" :offset="1">网站内容管理</el-col>
         <el-col :span="4" class="cover">
           <img src="../assets/visti.png" alt srcset /> 预览网站
         </el-col>
@@ -14,7 +14,7 @@
           <img src="../assets/exit.png" alt srcset />
           退出系统
         </el-col>
-        <el-col :span="6"  style="text-align:right" class="cover" :offset=1>
+        <el-col :span="6" style="text-align:right" class="cover" :offset="1">
           <img src="../assets/login.png" alt srcset /> 欢迎登陆
         </el-col>
       </el-row>
@@ -28,16 +28,16 @@
         @open="handleOpen"
         @close="handleClose"
       >
-        <el-menu-item index="/newclass">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>新建分类</span>
-          </template>
-        </el-menu-item>
-        <el-menu-item index="/Alldect">
-          <i class="el-icon-menu"></i>
-          <span slot="title">分类列表</span>
-        </el-menu-item>
+        <el-menu-item-group>
+          <template slot="title">分类</template>
+          <el-menu-item index="/newclass">新建分类</el-menu-item>
+          <el-menu-item index="/Alldect">分类列表</el-menu-item>
+        </el-menu-item-group>
+           <el-menu-item-group>
+          <template slot="title">装备</template>
+          <el-menu-item index="/addarticle">添加装备</el-menu-item>
+          <el-menu-item index="/articlelist">装备列表</el-menu-item>
+        </el-menu-item-group>
       </el-menu>
     </el-col>
     <el-col :span="18" :offset="1">
