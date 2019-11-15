@@ -13,7 +13,7 @@
             :show-file-list="false"
             :on-success="handleAvatarSuccess"
           >
-            <img v-if="module.icon" :src="module.icon" class="avatar" />
+            <img v-if="module.icon" :src="imgurl" class="avatar" />
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </el-form-item>
@@ -36,29 +36,29 @@ export default {
         name: "",
         icon: ""
       },
-      options: {},
-      
+      imgurl: "",
+      options: {}
     };
   },
   methods: {
     //   上传成功
-     handleAvatarSuccess(res,file){
-         console.log(file)
-        this.module.icon=URL.createObjectURL(file.raw);
-     
+    handleAvatarSuccess(res, file) {
+      console.log(file, res);
+      this.imgurl = URL.createObjectURL(file.raw);
+      this.module.icon = res.url;
     },
     addclass() {
       if (this.module.name) {
         if (!this.ID) {
-          this.$ajax
-            .post("article",this.module)
-            .then(() => {
-              this.$message({
-                message: "添加成功",
-                type: "success"
-              });
-              this.module.name = "";
+          this.$ajax.post("rest/article", this.module).then(() => {
+            this.$message({
+              message: "添加成功",
+              type: "success"
             });
+            this.module.name = "";
+            this.module.icon = "";
+            this.imgurl = "";
+          });
         } else {
           this.$ajax
             .put(`cert/${this.ID}`, {
@@ -70,7 +70,7 @@ export default {
                 message: "更改成功",
                 type: "success"
               });
-              this.$router.push("/Alldect");
+              this.$router.push("/articlelist");
             });
         }
       } else {
@@ -80,10 +80,17 @@ export default {
         });
       }
     }
-    // 获取父级分类
+    //转化未baser64图片
   },
   created() {
-    console.log(this.$ajax.defaults);
+    if (this.ID) {
+      this.$ajax.get("/rest/article/" + this.ID).then(data => {
+        console.log(data.data);
+        this.module.name = data.data.name;
+        this.module.icon = data.data.icon;
+        this.imgurl = data.data.icon;
+      });
+    }
   }
 };
 </script>

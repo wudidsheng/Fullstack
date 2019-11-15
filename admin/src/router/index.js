@@ -7,37 +7,41 @@ import Adcetiger from '../views/Adcetiger.vue'
 import Alldecti from '../components/Alldect.vue'
 // 装备
 import Article from '../views/addarticle.vue'
+import Aallarticle from '../views/alllarticle.vue'
 Vue.use(VueRouter)
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     name: 'home',
     component: Home,
-    children:[
-      {
-        path:'/newclass',
-        component:Adcetiger
+    children: [{
+        path: '/newclass',
+        component: Adcetiger
       },
       {
-        path:'/eidiclass/:ID',
-        component:Adcetiger,
-        props:true
+        path: '/eidiclass/:ID',
+        component: Adcetiger,
+        props: true
       },
       {
-        path:'/Alldect',
-        component:Alldecti
-      },{
-        path:'/addarticle',
-        component:Article
+        path: '/Alldect',
+        component: Alldecti
+      }, {
+        path: '/addarticle',
+        component: Article
       },
       {
-        path:'/articlelist',
-        component:Article
+        path: '/addarticle/:ID',
+        props:true,    //将路由参数转化未proprs
+        component: Article
+      }, ,
+      {
+        path: '/articlelist',
+        component: Aallarticle
       }
     ]
   }
-  
+
 ]
 
 const router = new VueRouter({

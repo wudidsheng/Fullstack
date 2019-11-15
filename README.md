@@ -35,7 +35,7 @@
 >
 > mongoose:populate      ref
 >
-> router请求参数合并
+> router请求参数合并 mergerpramars
 >
 > mongoose：
 >

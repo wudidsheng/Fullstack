@@ -1,8 +1,12 @@
 module.exports = app => {
     let express = require('express');
     let router = express.Router(); //生成子路由
+    let route = express.Router({
+        mergeParams:true
+    })
     let catrto = require('../../sql/admin')
     app.use('/admin/api', router); //为/admin/api下配置路由
+    app.use('/admin/api/rest/:resour', route) //通用db管理
     // 添加分类
     router.post("/cert", (req, res) => {
         catrto.create(req.body, (err, result) => {
@@ -39,12 +43,46 @@ module.exports = app => {
             res.send(result)
         })
     })
+    //通用物品管理
     /* ------装备物品管理-------*/
-    router.get('/article',(req,res)=>{
-        res.send('7889')
+    route.get('/', (req, res) => {
+        let article = require('../../sql/'+req.params.resour.toLowerCase());
+         article.find({},(err,result)=>{
+                res.send(result);
+         })
     })
     // 添加物品
-    router.post('/article',(req,res)=>{
-        res.send(req.body)
+    route.post('/', (req, res) => {
+        let article = require('../../sql/'+req.params.resour.toLowerCase());
+        article.create(req.body, (err, result) => {
+            if (!err) {
+                res.send(result)
+            }
+        })
+    })
+    //删除物品
+    route.delete('/:id', (req, res) => {
+        let article = require('../../sql/'+req.params.resour.toLowerCase());
+        article.findByIdAndRemove(req.params.id,(err,result)=>{
+            if(!err){
+                res.send(result);
+            }
+        })
+    })
+    // 编辑物品
+    route.put('/:id', (req, res) => {
+        let article = require('../../sql/'+req.params.resour.toLowerCase());
+        article.findByIdAndUpdate(req.params.id,req.body,(err,result)=>{
+            if(!err){
+                res.send(result);
+            }
+        })
+    })
+    //得到一条详情
+    route.get("/:id",(req,res)=>{
+        let article = require('../../sql/'+req.params.resour.toLowerCase());
+        article.findById(req.params.id,(err,result)=>{
+            res.send(result);
+        })
     })
 }
