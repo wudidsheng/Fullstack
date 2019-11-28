@@ -16,22 +16,26 @@
 > **1分类管理**
 >
 > > - 分类增加
-> >
 > > - 分类删除
-> >
 > > - 编辑分类
-> >
 > > - 查找分类
-> >
 > > - 子分类管理
-> >
-> >   > mongoose.schemtype.id               ref关联的模型
+> > - 装备管理添加删除
+> > - 英雄管理
+> > - 文章管理
+>
+> **账号**
+>
+> > - 管理员账号
+> > - 
 
 #### 不会的
 
 > @xx.native.prevent
 >
 > app.router 子路由
+>
+> app.set()
 >
 > mongoose:populate      ref
 >
@@ -44,3 +48,9 @@
 > setOptings
 >
 > populate
+>
+> formdata
+>
+> mongonse set select
+>
+> res.status

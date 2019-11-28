@@ -33,10 +33,31 @@
           <el-menu-item index="/newclass">新建分类</el-menu-item>
           <el-menu-item index="/Alldect">分类列表</el-menu-item>
         </el-menu-item-group>
-           <el-menu-item-group>
+        <el-menu-item-group>
           <template slot="title">装备</template>
           <el-menu-item index="/addarticle">添加装备</el-menu-item>
           <el-menu-item index="/articlelist">装备列表</el-menu-item>
+        </el-menu-item-group>
+
+        <el-menu-item-group>
+          <template slot="title">英雄</template>
+          <el-menu-item index="/hero">添加英雄</el-menu-item>
+          <el-menu-item index="/heroedit">英雄管理</el-menu-item>
+        </el-menu-item-group>
+        <el-menu-item-group>
+          <template slot="title">新闻</template>
+          <el-menu-item index="/news">添加新闻</el-menu-item>
+          <el-menu-item index="/newsedit">新闻列表</el-menu-item>
+        </el-menu-item-group>
+             <el-menu-item-group>
+          <template slot="title">广告</template>
+          <el-menu-item index="/ads">添加广告</el-menu-item>
+          <el-menu-item index="/adsedit">广告列表</el-menu-item>
+        </el-menu-item-group>
+              <el-menu-item-group>
+          <template slot="title">管理员管理</template>
+          <el-menu-item index="/admin">添加管理员</el-menu-item>
+          <el-menu-item index="/adminlist">管理员列表</el-menu-item>
         </el-menu-item-group>
       </el-menu>
     </el-col>

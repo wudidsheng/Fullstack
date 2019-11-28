@@ -6,6 +6,7 @@ let fs = require('fs');
 app.use(cors()) //跨域中间件
 require('./sql/db') //数据库连接
 // 静态文件夹
+app.set('md5','wosizp')  // 全局设置token加密密文
 app.use('/upload/rsult', express.static("./upload"))
 app.use(express.json()) //json解析中间件
 require('./router/admin')(app); //配置admin路由
