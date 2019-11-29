@@ -13,6 +13,13 @@ Vue.prototype.$ajax=http;
 Vue.use(vueEditor)
 Vue.config.productionTip = false
 Vue.use(ElementUI);
+Vue.mixin({
+  methods: {
+    gethaeder(){
+      return {toneknAurh:`name:${sessionStorage.token||' '}`}
+    }
+  }
+})
 new Vue({
   router,
   store,

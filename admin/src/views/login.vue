@@ -44,11 +44,15 @@ export default {
       }
       //获取token
       let token = await this.$ajax.post("/login", this.module);
-      //设置本地缓存
+      
       if (!token) {
         return "";
       }
+//  加入全局状态
+      this.$store.commit('settoken', token.data)
+      //设置本地缓存
       sessionStorage.token = token.data;
+      console.log(this.$store.state.token)
       this.$router.push("/");
     }
   }

@@ -54,3 +54,5 @@
 > mongonse set select
 >
 > res.status
+>
+> vue.mixin

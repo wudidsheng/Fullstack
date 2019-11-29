@@ -25,7 +25,8 @@ import login from '../views/login.vue'
 Vue.use(VueRouter)
 const routes = [{
     path: '/login',
-    component: login
+    component: login,
+    meta: { requiresAuth: true }
   }, {
     path: '/',
     component: Home,
@@ -119,5 +120,16 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
+//导航守卫
+router.beforeEach((to, from, next) => {
+  // 是否有token,或者是登陆页
+  if(to.meta.requiresAuth||sessionStorage.token){
+    next()
+  }
+  //不是跳转到登陆页
+  else{
+    next('/login')
+  }
+  next()
+})
 export default router
