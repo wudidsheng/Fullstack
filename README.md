@@ -31,15 +31,15 @@
 
 #### 不会的
 
-> @xx.native.prevent
+> @xx.native.prevent        阻止原生默认时间，vue
 >
-> app.router 子路由
+> app.router 子路由		express创建子路由		
 >
-> app.set()
+> app.set()                   express设置一个全局参数，通过app.get获取
 >
-> mongoose:populate      ref
+> mongoose:populate      ref     mongoose管理参数查询。populate指定管理字段查询
 >
-> router请求参数合并 mergerpramars
+> router请求参数合并 mergerpramars      express参数合并
 >
 > mongoose：
 >
@@ -53,6 +53,6 @@
 >
 > mongonse set select
 >
-> res.status
+> res.status       设置返回状态码，express
 >
-> vue.mixin
+> vue.mixin        定义vue中的混入，可以定义在全局

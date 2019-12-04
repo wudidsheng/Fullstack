@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html {
+  font-size: 13px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+  line-height: 0.96rem;
+}
+
+a {
+  color: #999;
+  text-decoration: none;
+}
+//colors
+$colors: (
+  "primary": #db9e3f,
+  "white": #fff,
+  "grey": #999,
+  "grey-1": #666,
+  "black":#000
+);
+@each $key, $vaule in $colors {
+  .color-#{$key} {
+    color: $vaule;
+  }
+  .bg-#{$key} {
+    background-color: $vaule;
+  }
+}
+//text
+$base-font-size: 1rem;
+$font-sze: (
+  xxs: 0.9846 * $base-font-size,
+  // 8px
+    xs: 0.9231rem,
+  //16px
+    lg: 1.6rem,
+    msd:0.9231rem,
+  //20px
+    md: 1.5231rem, //12px,
+    '13':1rem,
+    "9.6":0.7385rem
+);
+/*字体大小*/
+@each $irem, $vaule in $font-sze {
+  .text-#{$irem} {
+    font-size: $vaule;
+  }
+}
+
+/*文字水平对齐*/
+@each $var in (left, right, center) {
+  .text-#{$var} {
+    text-align: $var;
+  }
+}
+//flex
+.d-flex {
+  display: flex;
+}
+.d-x{
+  flex-direction: column;
+}
+$flex-js: (
+  start:flex-start,
+  end:flex-end,
+  center:center,
+  around:space-around,
+  betwen:space-between,
+);
+@each $var,$var1 in $flex-js {
+    .js-#{$var}{
+        justify-content: $var1;
+    }
+}
+$flex-ai: (
+  start:flex-start,
+  end:flex-end,
+  center:center,
+  str:stretch,
+);
+@each $var,$var1 in $flex-ai {
+    .ai-#{$var}{
+      align-items: $var1;
+    }
+}
+.flex-1{
+  flex: 1;
+}
+/*margin*/
+$margins: (
+  '0':0.5,
+  '1':1,
+  '2':1.5,
+  '3':2,
+  '4':2.5,
+);
+@each $itrem, $value in $margins {
+  .m-#{$itrem}{
+    margin:$value * $base-font-size;
+  }
+  .mx-#{$itrem}{
+    margin-left: $value * $base-font-size;
+    margin-right: $value * $base-font-size;
+  }
+  .my-#{$itrem}{
+    margin-top: $value * $base-font-size;
+    margin-bottom: $value * $base-font-size;
+  }
+  .px-#{$itrem}{
+    padding-left: $value * $base-font-size;
+    padding-right: $value * $base-font-size;
+  }
+  .py-#{$itrem}{
+    padding-top: $value * $base-font-size;
+    padding-bottom: $value * $base-font-size;
+  }
+  .p-#{$itrem}{
+    padding:$value * $base-font-size;
+  }
+  .mt-#{$itrem} {
+    margin-top: $value * $base-font-size;
+  }
+  .mb-#{$itrem} {
+    margin-bottom:$value * $base-font-size;
+  }
+  .mr-#{$itrem} {
+    margin-right:$value * $base-font-size;
+  }
+  .ml-#{$itrem} {
+    margin-left: $value * $base-font-size;
+  }
+  //padding
+  .pt-#{$itrem} {
+    padding-top: $value * $base-font-size;
+  }
+  .pb-#{$itrem} {
+    padding-bottom:$value * $base-font-size;
+  }
+  .pr-#{$itrem} {
+    padding-right:$value * $base-font-size;
+  }
+  .pl-#{$itrem} {
+    padding-left: $value * $base-font-size;
+  }
+}
+// 导航
+.nav{
+.prbut{
+  border: none;
+}
+}
+//active-class
+.border-bottm{
+  border-bottom: 0.2rem solid #fff;
+}
