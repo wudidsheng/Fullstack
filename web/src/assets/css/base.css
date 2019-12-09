@@ -13,6 +13,7 @@ body {
   padding: 0;
   font-family: "Courier New", Courier, monospace;
   line-height: 0.96rem;
+  background-color: #f1f1f1;
 }
 
 a {
@@ -60,33 +61,69 @@ a {
   background-color: #000;
 }
 
+.color-f9 {
+  color: #f9f9f9;
+}
+
+.bg-f9 {
+  background-color: #f9f9f9;
+}
+
+.color-cont {
+  color: #222222;
+}
+
+.bg-cont {
+  background-color: #222222;
+}
+
 /*字体大小*/
 .text-xxs {
-  font-size: 0.9846rem;
+  font-size: 0.9846rem !important;
 }
 
 .text-xs {
-  font-size: 0.9231rem;
+  font-size: 0.9231rem !important;
 }
 
 .text-lg {
-  font-size: 1.6rem;
+  font-size: 1.6rem !important;
 }
 
 .text-msd {
-  font-size: 0.9231rem;
+  font-size: 0.9231rem !important;
 }
 
 .text-md {
-  font-size: 1.5231rem;
+  font-size: 1.5231rem !important;
 }
 
 .text-13 {
-  font-size: 1rem;
+  font-size: 1rem !important;
 }
 
 .text-9.6 {
-  font-size: 0.7385rem;
+  font-size: 0.7385rem !important;
+}
+
+.text-10 {
+  font-size: 0.2492rem !important;
+}
+
+.text-16 {
+  font-size: 1.2308rem !important;
+}
+
+.text-14 {
+  font-size: 1.0769rem !important;
+}
+
+.text-12 {
+  font-size: 0.9231rem !important;
+}
+
+.fontweit {
+  font-weight: bold;
 }
 
 /*文字水平对齐*/
@@ -108,6 +145,10 @@ a {
 
 .d-x {
   flex-direction: column;
+}
+
+.f-wrap {
+  flex-wrap: wrap;
 }
 
 .js-start {

@@ -1,0 +1,51 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "448587",
+      "name": "择律-公用-收起",
+      "font_class": "z045",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "551841",
+      "name": "省略号",
+      "font_class": "more",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "1638517",
+      "name": "视频",
+      "font_class": "shipin",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "1916561",
+      "name": "图文",
+      "font_class": "article",
+      "unicode": "e7e7",
+      "unicode_decimal": 59367
+    },
+    {
+      "icon_id": "3216076",
+      "name": "列表",
+      "font_class": "icon--",
+      "unicode": "e714",
+      "unicode_decimal": 59156
+    },
+    {
+      "icon_id": "6027501",
+      "name": "新闻",
+      "font_class": "xinwen",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    }
+  ]
+}
