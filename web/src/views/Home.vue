@@ -31,13 +31,25 @@
       收起
     </div>
     <!-- card -->
-    <Card/>
+    <Card title="新闻资讯" icon="icon-icon--" :swipernav="swipernav" :key="1">
+         <template #items='{value}'>
+        <div class="d-flex d-x">
+          <div class="d-flex px-1 ai-center" v-for="(item,ii) in value.list" :key="ii">
+            <div class="flex-1 text-14 color-cont content pr-1">{{item.carory}}{{item.content}}</div>
+            <div class="color-cont text-12">{{item.time}}</div>
+          </div>
+        </div>
+      </template>
+    </Card>
+    <Card title="英雄列表" icon="icon-icon--" :swipernav="herolist" class="mt-1" :key="7891">
+   
+    </Card>
   </div>
 </template>
 
 <script>
 import "swiper/dist/css/swiper.css";
-import Card from '../components/Card'
+import Card from "../components/Card";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 export default {
   components: {
@@ -47,6 +59,159 @@ export default {
   },
   data() {
     return {
+      herolist: [{ name: "战士" }, { name: "法师" }, { name: "射手" }],
+      swipernav: [
+        {
+          name: "热门",
+          list: [
+            {
+              carory: "[公告]",
+              content: "【已修复】更新后无法进入游戏问题说明公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "12月10日全服不停机更新公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "钟馗英雄技能音效异常说明公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "皮肤爆料 | S18赛季皮肤提前曝光，竟然是ta！",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "冰雪聚峡谷 轻松得好礼",
+              time: "12/10"
+            }
+          ]
+        },
+        {
+          name: "新闻",
+          list: [
+            {
+              carory: "[公告]",
+              content: "【已修复】更新后无法进入游戏问题说明公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "12月10日全服不停机更新公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "钟馗英雄技能音效异常说明公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "皮肤爆料 | S18赛季皮肤提前曝光，竟然是ta！",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "冰雪聚峡谷 轻松得好礼",
+              time: "12/10"
+            }
+          ]
+        },
+        {
+          name: "公告",
+          list: [
+            {
+              carory: "[公告]",
+              content: "【已修复】更新后无法进入游戏问题说明公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "12月10日全服不停机更新公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "钟馗英雄技能音效异常说明公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "皮肤爆料 | S18赛季皮肤提前曝光，竟然是ta！",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "冰雪聚峡谷 轻松得好礼",
+              time: "12/10"
+            }
+          ]
+        },
+        {
+          name: "赛事",
+          list: [
+            {
+              carory: "[公告]",
+              content: "【已修复】更新后无法进入游戏问题说明公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "12月10日全服不停机更新公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "钟馗英雄技能音效异常说明公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "皮肤爆料 | S18赛季皮肤提前曝光，竟然是ta！",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "冰雪聚峡谷 轻松得好礼",
+              time: "12/10"
+            }
+          ]
+        },
+        {
+          name: "活动",
+          list: [
+            {
+              carory: "[公告]",
+              content: "【已修复】更新后无法进入游戏问题说明公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "12月10日全服不停机更新公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "钟馗英雄技能音效异常说明公告",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "皮肤爆料 | S18赛季皮肤提前曝光，竟然是ta！",
+              time: "12/10"
+            },
+            {
+              carory: "[公告]",
+              content: "冰雪聚峡谷 轻松得好礼",
+              time: "12/10"
+            }
+          ]
+        }
+      ],
       //sprite
       sprite: [
         "爆料站",
@@ -94,9 +259,9 @@ export default {
   }
 }
 //精靈圖
-.sprititem:nth-child(4n){
+.sprititem:nth-child(4n) {
   border-right: none;
-} 
+}
 .sprititem {
   width: 25%;
   border-right: 0.0769rem solid rgb(153, 153, 153);

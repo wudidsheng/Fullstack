@@ -1,73 +1,37 @@
 <template>
   <div class="bg-white px-0">
     <div class="haed py-1 px-1 d-flex ai-center">
-      <div class="icon-icon-- iconfont mr-0"></div>
-      <div class="flex-1 text-16 color-black">新闻资讯</div>
+      <div :class="['iconfont mr-0',icon]"></div>
+      <div class="flex-1 text-16 color-black">{{title}}</div>
       <div class="icon-more iconfont"></div>
     </div>
+    <slot name="headr"></slot>
     <div>
       <!-- //导航 -->
       <div
+        :key="icon"
         class="d-flex py-1 text-13 color-black fontweit js-around ai-center navsw"
-        @click="goswiper"
+        @click.capture="goswiper"
       >
-        <!-- <div class="pb-0 active">热门</div>
-        <div class="pb-0">新闻</div>
-        <div class="pb-0">活动</div>
-        <div class="pb-0">赛事</div>
-        <div class="pb-0">公告</div>-->
+        <span
+          :class="['text-12 color-grey fontweit',active==i? 'active' : '',]"
+          :data-index="i"
+          v-for="(item,i) in  swipernav"
+          :key="i"
+        >{{item.name}}</span>
       </div>
       <!-- swipre -->
       <swiper :options="swiperconifg" ref="mySwiper">
-        <swiperSlide>
-          <div class="d-flex d-x">
-            <div class="d-flex px-1 ai-center" v-for="i in 6" :key="i">
+        <swiperSlide v-for="(item,i) in swipernav" :key="i">
+          <!-- <div class="d-flex d-x">
+            <div class="d-flex px-1 ai-center" v-for="(item,ii) in item.list" :key="ii">
               <div
                 class="flex-1 text-14 color-cont content pr-1"
-              >[公告]1111211213123213213213122月3日全服不停机更新公告</div>
-              <div class="color-cont text-12">12-01</div>
-            </div>
-          </div>
-        </swiperSlide>
-        <swiperSlide>
-          <div class="d-flex d-x">
-            <div class="d-flex px-1 ai-center" v-for="i in 6" :key="i">
-              <div
-                class="flex-1 text-14 color-cont content pr-1"
-              >[公告]1111211213123213213213122月3日全服不停机更新公告</div>
-              <div class="color-cont text-12">12-01</div>
-            </div>
-          </div>
-        </swiperSlide>
-        <swiperSlide>
-          <div class="d-flex d-x">
-            <div class="d-flex px-1 ai-center" v-for="i in 6" :key="i">
-              <div
-                class="flex-1 text-14 color-cont content pr-1"
-              >[公告]1111211213123213213213122月3日全服不停机更新公告</div>
-              <div class="color-cont text-12">12-01</div>
-            </div>
-          </div>
-        </swiperSlide>
-        <swiperSlide>
-          <div class="d-flex d-x">
-            <div class="d-flex px-1 ai-center" v-for="i in 6" :key="i">
-              <div
-                class="flex-1 text-14 color-cont content pr-1"
-              >[公告]1111211213123213213213122月3日全服不停机更新公告</div>
-              <div class="color-cont text-12">12-01</div>
-            </div>
-          </div>
-        </swiperSlide>
-        <swiperSlide>
-          <div class="d-flex d-x">
-            <div class="d-flex px-1 ai-center" v-for="i in 6" :key="i">
-              <div
-                class="flex-1 text-14 color-cont content pr-1"
-              >[公告]1111211213123213213213122月3日全服不停机更新公告</div>
-              <div class="color-cont text-12">12-01</div>
-            </div>
-          </div>
+              >{{item.carory}}{{item.content}}</div>
+              <div class="color-cont text-12">{{item.time}}</div>
+          </div>-->
+          <slot :value="item" name="items"></slot>
+          <!-- </div> -->
         </swiperSlide>
       </swiper>
     </div>
@@ -78,52 +42,66 @@
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 export default {
+  props: {
+    icon: String,
+    title: String,
+    swipernav: Array
+  },
   components: {
     swiper,
     swiperSlide
   },
   data() {
     return {
+      active: 0,
       swiperconifg: {
-        pagination: {
-          el: ".navsw",
-          type: "custom",
-          renderCustom: function(swiper, current, total) {
-            //cl当前页,total总共页面
-            let swpiertab = ["热门", "新闻", "公告", "活动", "赛事"];
-            var customPaginationHtml = "";
-            for (var i = 0; i < total; i++) {
-              //判断哪个分页器此刻应该被激活
-              if (i == current - 1) {
-                customPaginationHtml +=
-                  '<span class="swiper-pagination-customs pb-0 swiper-pagination-bullet-active" data-index=' +
-                  i +
-                  ">" +
-                  swpiertab[i] +
-                  "</span>";
-              } else {
-                customPaginationHtml +=
-                  '<span class="swiper-pagination-customs pb-0" data-index=' +
-                  i +
-                  ">" +
-                  swpiertab[i] +
-                  "</span>";
-              }
-            }
-            return customPaginationHtml;
+        on: {
+          slideChangeTransitionEnd: () => {
+            //this.swiper取到swiper对象
+            this.setindex(this.swiper.activeIndex);
+            // alert(this.activeIndex); //切换结束时，告诉我现在是第几个slide
           }
         }
+        //   pagination: {
+        //     this: this,
+        //     el: ".navsw",
+        //     type: "custom",
+        //     renderCustom: function(swiper, current, total) {
+        //       var customPaginationHtml = "";
+        //       for (var i = 0; i < total; i++) {
+        //         //判断哪个分页器此刻应该被激活
+        //         if (i == current - 1) {
+        //           customPaginationHtml +=
+        //             '<span kye='+i+' class="swiper-pagination-customs pb-0 active" data-index=' +
+        //             i +
+        //             ">" +
+        //             this.this.swipernav[i].name +
+        //             "</span>";
+        //         } else {
+        //           customPaginationHtml +=
+        //             '<span kye='+i+' class="swiper-pagination-customs pb-0" data-index=' +
+        //             i +
+        //             ">" +
+        //             this.this.swipernav[i].name +
+        //             "</span>";
+        //         }
+        //       }
+
+        //       return customPaginationHtml;
+        //     }
+        //   }
       }
     };
   },
-  mounted() {
-    document.querySelectorAll(".swiper-pagination")[1].onclick = function() {
-      console.log(1);
-    };
-  },
+  mounted() {},
   methods: {
+    setindex(i) {
+      this.active = i;
+    },
     goswiper(e) {
+      console.log(e.target);
       if (e.target.dataset.index != undefined) {
+        this.active = e.target.dataset.index;
         this.swiper.slideTo(e.target.dataset.index, 1000, false);
       }
     }
@@ -144,7 +122,7 @@ export default {
   & > span {
     display: inline-block;
     border-bottom: 0.1538rem solid transparent;
-    &.swiper-pagination-bullet-active {
+    &.active {
       color: rgb(219, 158, 63) !important;
       border-color: rgb(219, 158, 63) !important;
       background-color: transparent !important;
