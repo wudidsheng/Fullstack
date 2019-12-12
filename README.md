@@ -29,30 +29,6 @@
 > > - 管理员账号
 > > - 
 
-#### 不会的
-
-> @xx.native.prevent        阻止原生默认时间，vue
->
-> app.router 子路由		express创建子路由		
->
-> app.set()                   express设置一个全局参数，通过app.get获取
->
-> mongoose:populate      ref     mongoose管理参数查询。populate指定管理字段查询
->
-> router请求参数合并 mergerpramars      express参数合并
->
-> mongoose：
->
-> model.modelname
->
-> setOptings
->
-> populate
->
-> formdata
->
-> mongonse set select
->
-> res.status       设置返回状态码，express
+> 
 >
 > vue.mixin        定义vue中的混入，可以定义在全局
