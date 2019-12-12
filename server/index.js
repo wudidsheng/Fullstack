@@ -10,6 +10,7 @@ app.set('md5','wosizp')  // 全局设置token加密密文
 app.use('/upload/rsult', express.static("./upload"))
 app.use(express.json()) //json解析中间件
 require('./router/admin')(app); //配置admin路由
+require('./router/web')(app) ;
 let jwetb=require('./midvier/token')
 
 // 文件上传
