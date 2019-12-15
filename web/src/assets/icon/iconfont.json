@@ -34,6 +34,20 @@
       "unicode_decimal": 59367
     },
     {
+      "icon_id": "2418238",
+      "name": "返回",
+      "font_class": "fanhui",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "2570128",
+      "name": "链接",
+      "font_class": "lianjie-tianchong",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
       "icon_id": "3216076",
       "name": "列表",
       "font_class": "icon--",

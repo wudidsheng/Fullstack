@@ -27,7 +27,8 @@ $colors: (
   "grey-1": #666,
   "black":#000,
   'f9':#f9f9f9,
-  'cont':rgb(34, 34, 34)
+  'cont':rgb(34, 34, 34),
+  'blue':rgb(67, 148, 228)
 );
 @each $key, $vaule in $colors {
   .color-#{$key} {
@@ -172,4 +173,11 @@ $margins: (
 //active-class
 .border-bottm{
   border-bottom: 0.2rem solid #fff;
+}
+//文字溢出
+.textover{
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;;
 }

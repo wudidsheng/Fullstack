@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="bg-black p-0 d-flex nav ai-center">
+  <div class="navcs">
+    <div class="bg-black p-0 d-flex nav ai-center ">
       <img src="../assets/img/logo.png" style="max-height:2.5rem" class="mx-1" />
       <div class="d-flex d-x flex-1 js-center">
         <div class="text-13 color-white">王者荣耀</div>
@@ -20,5 +20,10 @@
 export default {};
 </script>
 
-<style  scoped>
+<style lang="scss" scoped>
+  .navcs{
+    position: sticky;  //吸顶
+     top: 0;
+     z-index: 9999;
+  }
 </style>

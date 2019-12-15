@@ -1,8 +1,8 @@
 let mongoose = require('mongoose');
 // 英雄模型
 let calass = new mongoose.Schema({
-    name: String,
-    icon: String,
+    name: String,  //名字
+    icon: String,   //图标
     title: String,
     position: [{
         type: mongoose.SchemaTypes.ObjectId,

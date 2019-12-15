@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-
+import Detal from '../views/Details.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -12,7 +12,12 @@ const routes = [
     component: Home,
  
   },
- 
+  {
+    // 首页
+    path: '/detal/:id',
+    component: Detal,
+    props: true
+  },
 ]
 
 const router = new VueRouter({

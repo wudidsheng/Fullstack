@@ -77,6 +77,14 @@ a {
   background-color: #222222;
 }
 
+.color-blue {
+  color: #4394e4;
+}
+
+.bg-blue {
+  background-color: #4394e4;
+}
+
 /*字体大小*/
 .text-xxs {
   font-size: 0.9846rem !important;
@@ -498,4 +506,11 @@ a {
 
 .border-bottm {
   border-bottom: 0.2rem solid #fff;
+}
+
+.textover {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

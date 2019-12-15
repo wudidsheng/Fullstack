@@ -34,15 +34,30 @@
     <Card title="新闻资讯" icon="icon-icon--" :swipernav="swipernav" :key="1">
          <template #items='{value}'>
         <div class="d-flex d-x">
-          <div class="d-flex px-1 ai-center" v-for="(item,ii) in value.newslist" :key="ii">
+          <router-link
+           tag="div"
+        :to="`/detal/${item._id}`"
+           class="d-flex px-1 ai-center" v-for="(item,ii) in value.newslist" :key="ii">
             <div class="flex-1 text-14 color-cont content pr-1">[{{item.carory}}]{{item.title}}</div>
             <div class="color-cont text-12">{{item.updatedAt| getday}}</div>
-          </div>
+          </router-link>
         </div>
       </template>
     </Card>
-    <Card title="英雄列表" icon="icon-icon--" :swipernav="herolist" class="mt-1" :key="7891">
-   
+    <Card title="英雄列表" icon="icon-icon--" :swipernav="herolist" class="mt-1" >
+      <template v-slot:headr>
+          <div class="py-1">
+            <img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20191128/56183621913905.jpg" alt="" style="height:8.8462rem;width:100%">
+          </div>
+      </template>
+         <template #items='{value}'>
+        <div class="d-flex f-wrap px-1" style="margin:0 -0.5em">
+              <div class="d-flex ai-center js-center d-x p-0" v-for="(item,key) in value.newslist" :key='key' style="width:20%;">
+                <img  style="width:100%" :src="item.icon" alt="" >
+                <div class="pt-0 text-12 color-cont">{{item.name}}</div>
+              </div>
+        </div>
+      </template>
     </Card>
   </div>
 </template>
@@ -98,6 +113,9 @@ export default {
   created () {
       this.$http.get('/list').then(data=>{
         this.swipernav=data.data;
+      }),
+      this.$http.get('/hero/list').then(data=>{
+        this.herolist=data.data;
       })
   }
 };

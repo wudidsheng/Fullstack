@@ -55,6 +55,7 @@ export default {
     return {
       active: 0,
       swiperconifg: {
+        autoHeight:true,
         on: {
           slideChangeTransitionEnd: () => {
             //this.swiper取到swiper对象
