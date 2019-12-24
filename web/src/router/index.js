@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Detal from '../views/Details.vue'
+import Hero from '../views/hero.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -18,6 +19,12 @@ const routes = [
     component: Detal,
     props: true
   },
+  //英雄
+  {
+    path: '/hero/:id',
+    component: Hero ,
+    props: true
+  }
 ]
 
 const router = new VueRouter({

@@ -719,5 +719,11 @@ module.exports = app => {
       
         res.send(heroallist)
     })
+    //英雄详情
+    router.get('/hero/:ID',async (req,res)=>{
+      let hero=require('../../sql/hero')
+      let data=await hero.findById(req.params.ID).populate('position')
+            res.send(data)
+    })
 
 }

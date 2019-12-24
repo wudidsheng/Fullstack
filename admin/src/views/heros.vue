@@ -11,12 +11,25 @@
             <el-form-item label="英雄称号">
               <el-input type="text" v-model="module.title"></el-input>
             </el-form-item>
+            <el-form-item label="Banner">
+              <el-upload
+                class="avatar-uploader"
+                action="http://127.0.0.1:3000/upload"
+                :show-file-list="false"
+                :on-success="res=>module.background=res.url"
+                :headers='gethaeder()'
+              >
+                <img v-if="module.background" :src="module.background" class="avatar" />
+                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+              </el-upload>
+            </el-form-item>
             <el-form-item label="英雄图标">
               <el-upload
                 class="avatar-uploader"
                 action="http://127.0.0.1:3000/upload"
                 :show-file-list="false"
                 :on-success="handleAvatarSuccess"
+                :headers='gethaeder()'
               >
                 <img v-if="module.icon" :src="imgurl" class="avatar" />
                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
@@ -98,6 +111,7 @@
                     action="http://127.0.0.1:3000/upload"
                     :show-file-list="false"
                     :on-success="res=>item.icon=res.url"
+                    :headers='gethaeder()'       
                   >
                     <img v-if="item.icon" :src="item.icon" class="avatar" />
                     <i v-else class="el-icon-plus avatar-uploader-icon"></i>

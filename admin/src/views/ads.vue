@@ -19,7 +19,7 @@
               <span>广告{{index+1}}</span>
               <el-divider></el-divider>
               <el-upload
-               
+                :headers='gethaeder()' 
                 action="http://127.0.0.1:3000/upload"
                 :show-file-list="false"
                 :on-success="(res)=>item.image=res.url"

@@ -52,10 +52,10 @@
       </template>
          <template #items='{value}'>
         <div class="d-flex f-wrap px-1" style="margin:0 -0.5em">
-              <div class="d-flex ai-center js-center d-x p-0" v-for="(item,key) in value.newslist" :key='key' style="width:20%;">
+              <router-link tag="div" :to="`/hero/${item._id}`" class="d-flex ai-center js-center d-x p-0" v-for="(item,key) in value.newslist" :key='key' style="width:20%;">
                 <img  style="width:100%" :src="item.icon" alt="" >
                 <div class="pt-0 text-12 color-cont">{{item.name}}</div>
-              </div>
+              </router-link>
         </div>
       </template>
     </Card>

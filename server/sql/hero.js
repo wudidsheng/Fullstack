@@ -4,6 +4,7 @@ let calass = new mongoose.Schema({
     name: String,  //名字
     icon: String,   //图标
     title: String,
+    background:String,
     position: [{
         type: mongoose.SchemaTypes.ObjectId,
         ref: "catrto"
