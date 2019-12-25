@@ -54,7 +54,8 @@ $font-sze: (
     '10':0.2492rem,
     "16":1.2308rem,
     '14':1.0769rem,
-    '12':0.9231rem
+    '12':0.9231rem,
+    '11':0.8462rem
 );
 /*字体大小*/
 @each $irem, $vaule in $font-sze {
@@ -174,6 +175,7 @@ $margins: (
 .border-bottm{
   border-bottom: 0.2rem solid #fff;
 }
+
 //文字溢出
 .textover{
   display: inline-block;
